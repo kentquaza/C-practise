@@ -1,0 +1,37 @@
+// See https://aka.ms/new-console-template for more information
+using System.Data;
+using System.Text;
+
+Console.OutputEncoding = Encoding.UTF8;
+Console.WriteLine("------Chương Trình Tính Tuổi----------");
+    Console.WriteLine("Hãy nhập vào Số người");
+int soNguoi = int.Parse(Console.ReadLine());
+int[] mangTuoi = new int[soNguoi];
+
+for (int i = 1;i< soNguoi+1;i++)
+{
+    Console.WriteLine("Hãy Nhập Vào Tuổi của Người thứ " + i);
+        int tuoi = int.Parse(Console.ReadLine());
+        
+        mangTuoi[i-1] = tuoi;
+
+}
+//in ra tuoi lon nhat va tuoi be nhat
+
+Array.Sort(mangTuoi);
+    Console.WriteLine("Tuổi Lớn Nhất là {0} ", mangTuoi[soNguoi-1]);
+    Console.WriteLine("Tuổi Nhỏ Nhất là {0} ", mangTuoi[0]);
+
+// tinh tuoi tb 
+   float a = TuoiTrungBinh(mangTuoi, soNguoi);
+    Console.WriteLine("Tuổi Trung Bình là : " + a);
+
+ static float TuoiTrungBinh(int[] mangTinh,int phanTu)
+{
+    int sum = 0;
+    foreach (int item in mangTinh)
+    {
+        sum += item;
+    }   float tuoiTB = sum/(phanTu);
+    return tuoiTB;
+}
